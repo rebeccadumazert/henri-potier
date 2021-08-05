@@ -1,0 +1,13 @@
+.bookCard {
+  text-align: center;
+  justify-content: center;
+  margin: 20px;
+}
+.picContainer {
+  margin: auto;
+  width: 250px;
+}
+
+.picContainer > img {
+  width: 100%;
+}
