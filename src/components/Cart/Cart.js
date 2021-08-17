@@ -1,3 +1,5 @@
+import './Cart.css'
+
 import { useEffect, useState } from 'react'
 
 import { getCommercialOffers } from '../../services/api'
@@ -5,7 +7,6 @@ import { useSelector } from 'react-redux'
 
 function Cart() {
   const [discountedTotal, setDiscountedTotal] = useState(0)
-
   const cart = useSelector((state) => state.cart.current)
   const total = cart.reduce((prev, current) => {
     return prev + current.price
@@ -39,26 +40,43 @@ function Cart() {
     if (total > 0) {
       getCommercialOffers(cart.map((cartItem) => cartItem.isbn)).then(
         (data) => {
-          console.log(data)
           setDiscountedTotal(total - getBestOffer(data.offers))
         }
       )
-      console.log('should fetch blabla', cart)
     }
   }, [cart, total])
 
   return (
     <div>
-      <ul>
-        {cart.map((cartItem, index) => (
-          <li key={`${index}-${cartItem.isbn}`}>
-            {cartItem.isbn} : {cartItem.title}
-          </li>
-        ))}
-      </ul>
-      <p>
-        Total : {total}€ (avec reduction : {discountedTotal}
-      </p>
+      {total === 0 ? (
+        <p>Vous n'avez pas d'article dans votre panier !</p>
+      ) : (
+        <div className='ContainerTotal'>
+          <div className='ContainerBookCart'>
+            {cart.map((cartItem, index) => (
+              <div key={index} className='BookCart'>
+                <div className='PicContainer'>
+                  <img src={cartItem.cover} alt='' />
+                </div>
+                <div className='InfoBookToBuy'>
+                  <p>{cartItem.title}</p>
+                  <p className='Price'>{cartItem.price} €</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className='TotalBuy'>
+            <h3>Total de vos achats</h3>
+            <p>
+              Total : <span>{total} €</span>
+            </p>
+            <p>
+              Total après réduction : <span>{discountedTotal} €</span>
+            </p>
+            <button>PAIEMENT</button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

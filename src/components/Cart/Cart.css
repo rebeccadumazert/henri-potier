@@ -1,0 +1,58 @@
+.ContainerBookCart {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.BookCart {
+  text-align: center;
+  justify-content: center;
+  margin: 20px;
+}
+.PicContainer {
+  margin: auto;
+  width: 250px;
+}
+
+.PicContainer > img {
+  width: 100%;
+}
+
+.BooksSelected {
+  display: flex;
+}
+
+.TotalBuy {
+  background-color: #f9f9f9;
+  flex-grow: 0.5;
+  padding: 20px 10px;
+  text-align: justify;
+}
+
+.TotalBuy > p {
+  padding: 5px;
+}
+.TotalBuy > button {
+  border: none !important;
+  border-radius: 2px;
+  background-color: #180f75;
+  font-size: large;
+  color: white;
+  margin: 10px;
+  padding: 10px;
+}
+p > span {
+  font-weight: bold;
+}
+.ContainerTotal {
+  display: flex;
+}
+
+.InfoBookToBuy {
+  text-align: justify;
+}
+
+.InfoBookToBuy > .price {
+  font-weight: bold;
+}
