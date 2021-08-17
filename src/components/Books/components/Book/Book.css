@@ -2,6 +2,8 @@
   text-align: center;
   justify-content: center;
   margin: 20px;
+  display: flex;
+  flex-direction: column;
 }
 .picContainer {
   margin: auto;
@@ -10,4 +12,30 @@
 
 .picContainer > img {
   width: 100%;
+}
+.InfoBook {
+  color: #2d2d2d;
+  width: 250px;
+  text-align: justify;
+}
+p {
+  font-size: smaller;
+  margin: 0px;
+}
+.Price {
+  font-weight: bold;
+  margin-top: 5px;
+  color: #666;
+}
+
+.buyIt {
+  margin-top: 10px;
+  align-self: flex-end;
+  border: none;
+  color: white;
+  background-color: #180f75;
+  width: 250px;
+  padding: 10px;
+  font-weight: bolder;
+  border-radius: 2px;
 }

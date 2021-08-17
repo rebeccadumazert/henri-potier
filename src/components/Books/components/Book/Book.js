@@ -14,10 +14,12 @@ export default function Book({ book }) {
       <div className='picContainer'>
         <img src={book.cover} alt='' />
       </div>
-      <div>
+      <div className='InfoBook'>
         <p>{book.title}</p>
-        <p>Price : {book.price} €</p>
-        <button onClick={buyIt}>Mettre dans le panier</button>
+        <p className='Price'>{book.price}€</p>
+        <button className='buyIt' onClick={buyIt}>
+          Ajouter au panier
+        </button>
       </div>
     </div>
   )
