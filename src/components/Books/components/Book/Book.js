@@ -1,6 +1,7 @@
 import './Book.css'
 
 export default function Book({ bookdata: { title, price, cover, synopsis } }) {
+  const putOnBasket = () => {}
   return (
     <div className='bookCard'>
       <div className='picContainer'>
@@ -9,7 +10,7 @@ export default function Book({ bookdata: { title, price, cover, synopsis } }) {
       <div>
         <p>{title}</p>
         <p>Price : {price} €</p>
-        {/* <p>Synopsis: {synopsis}</p> */}
+        <button onClick={putOnBasket}>Mettre dans le panier</button>
       </div>
     </div>
   )
