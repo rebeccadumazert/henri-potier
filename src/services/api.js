@@ -9,4 +9,15 @@ export const getBooks = async () => {
   }
 }
 
-export default getBooks
+export const getCommercialOffers = async (booksIds) => {
+  try {
+    const { data } = await axios.get(
+      `https://henri-potier.techx.fr/books/${booksIds.join(
+        ','
+      )}/commercialOffers`
+    )
+    return data
+  } catch (error) {
+    console.log(error)
+  }
+}

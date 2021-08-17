@@ -17,7 +17,7 @@ function Books() {
   return (
     <div className='Books'>
       {books.map((book, i) => (
-        <Book key={i} bookdata={book}></Book>
+        <Book key={i} book={book}></Book>
       ))}
     </div>
   )

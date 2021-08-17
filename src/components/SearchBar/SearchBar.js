@@ -1,9 +1,9 @@
 import './SearchBar.css'
 
-import { Link, BrowserRouter as Router } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 
 import FlashOnIcon from '@material-ui/icons/FlashOn'
+import { Link } from 'react-router-dom'
 import { Results } from './components/Results'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import { findResultBySearch } from '../../services/searchBook'
@@ -32,30 +32,29 @@ export const SearchBar = () => {
     setSearch(value)
   }
   return (
-    <Router>
-      <div>
-        <nav className='SearchBar'>
+    <div>
+      <nav className='SearchBar'>
+        <Link to='/'>
           <FlashOnIcon style={{ margin: '5px' }}></FlashOnIcon>
-
-          <input
-            type='text'
-            placeholder='Trouve livre à ton pied'
-            value={search}
-            onChange={getSearchByCustomer}
+        </Link>
+        <input
+          type='text'
+          placeholder='Trouve livre à ton pied'
+          value={search}
+          onChange={getSearchByCustomer}
+        />
+        <button onClick={getTitle}>
+          <img
+            src='https://img.icons8.com/material-outlined/24/000000/search--v1.png'
+            alt=''
           />
-          <button onClick={getTitle}>
-            <img
-              src='https://img.icons8.com/material-outlined/24/000000/search--v1.png'
-              alt=''
-            />
-          </button>
+        </button>
 
-          <Link to='/card'>
-            <ShoppingCartIcon style={{ margin: '5px' }}></ShoppingCartIcon>
-          </Link>
-        </nav>
-        <Results results={titleFromSearch}></Results>
-      </div>
-    </Router>
+        <Link to='/cart'>
+          <ShoppingCartIcon style={{ margin: '5px' }}></ShoppingCartIcon>
+        </Link>
+      </nav>
+      <Results results={titleFromSearch}></Results>
+    </div>
   )
 }
