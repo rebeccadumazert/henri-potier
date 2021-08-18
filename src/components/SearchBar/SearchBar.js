@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 
 import FlashOnIcon from '@material-ui/icons/FlashOn'
 import { Link } from 'react-router-dom'
+import Results from './components/Results'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import { booksBySearch } from '../../store/resultSearch'
 import { getBooks } from '../../services/api'
@@ -12,19 +13,16 @@ import { useSelector } from 'react-redux'
 
 export const SearchBar = () => {
   const dispatch = useDispatch()
-  const [search, setSearch] = useState([''])
+  const [popUp, setPopUp] = useState(false)
+  const [search, setSearch] = useState('')
   const [books, setBooks] = useState([])
   const [titleFromSearch, setTitleFromSearch] = useState([])
   const totalItemsInCart = useSelector((state) => state.cart.current).length
 
-  function findResultBySearch(search, booksList) {
-    const searchRegex = new RegExp(`/*${search}*`, 'i')
-    const resultSearch = booksList.filter((book) =>
-      searchRegex.test(book.title)
-    )
-    dispatch(booksBySearch(resultSearch))
+  let showResults
+  if (popUp) {
+    showResults = <Results popUp={popUp} setPopUp={setPopUp}></Results>
   }
-
   useEffect(() => {
     const getBooksDatas = async () => {
       const datas = await getBooks()
@@ -32,6 +30,14 @@ export const SearchBar = () => {
     }
     getBooksDatas()
   }, [])
+  function findResultBySearch(search, booksList) {
+    const searchRegex = new RegExp(`/*${search}*`, 'i')
+    const resultSearch = booksList.filter(({ title }) =>
+      searchRegex.test(title)
+    )
+    dispatch(booksBySearch(resultSearch))
+    setPopUp(!popUp)
+  }
 
   const getTitle = () => {
     const titles = findResultBySearch(search, books)
@@ -41,6 +47,7 @@ export const SearchBar = () => {
   const getSearchByCustomer = ({ target: { value } }) => {
     setSearch(value)
   }
+
   return (
     <div>
       <nav className='Head'>
@@ -57,13 +64,12 @@ export const SearchBar = () => {
           {search === '' ? (
             <span></span>
           ) : (
-            <Link to='/search'>
+            <button onClick={getTitle}>
               <img
-                onClick={getTitle}
                 src='https://img.icons8.com/material-outlined/24/000000/search--v1.png'
                 alt=''
               />
-            </Link>
+            </button>
           )}
         </div>
 
@@ -76,6 +82,7 @@ export const SearchBar = () => {
           <p>{totalItemsInCart}</p>
         </Link>
       </nav>
+      {showResults}
     </div>
   )
 }

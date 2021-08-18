@@ -5,7 +5,7 @@ const resultsBooksSlice = createSlice({
   initialState: { current: [] },
   reducers: {
     booksBySearch(state, action) {
-      state.current.push(action.payload)
+      return action.payload
     },
   },
 })
