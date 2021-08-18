@@ -4,6 +4,7 @@ import { addToCart } from '../../../../store/cart'
 import { useDispatch } from 'react-redux'
 
 export default function Book({ book }) {
+  const { cover = '', title = '', price = '' } = book
   const dispatch = useDispatch()
 
   const buyIt = () => {
@@ -12,11 +13,11 @@ export default function Book({ book }) {
   return (
     <div className='bookCard'>
       <div className='picContainer'>
-        <img src={book.cover} alt='' />
+        <img src={cover} alt='' />
       </div>
       <div className='InfoBook'>
-        <p>{book.title}</p>
-        <p className='Price'>{book.price}€</p>
+        <p>{title}</p>
+        <p className='Price'>{price}€</p>
         <button className='buyIt' onClick={buyIt}>
           Ajouter au panier
         </button>
