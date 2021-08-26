@@ -1,5 +1,3 @@
-import './SearchBar.css'
-
 import React, { useEffect, useState } from 'react'
 
 import FlashOnIcon from '@material-ui/icons/FlashOn'
@@ -9,6 +7,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import { booksBySearch } from '../../store/resultSearch'
 import { getBooks } from '../../services/api'
 import logoSearch from '../../images/search.png'
+import styles from './SearchBar.module.css'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 
@@ -51,13 +50,15 @@ export const SearchBar = () => {
     setSearch(value)
   }
 
+  const { searchBar, head, icon, homeIcon } = styles
+
   return (
     <div>
-      <nav className='Head'>
-        <Link to='/' className='Icon'>
-          <FlashOnIcon style={{ margin: '5px' }}></FlashOnIcon>
+      <nav className={head}>
+        <Link to='/' className={icon}>
+          <FlashOnIcon className={homeIcon}></FlashOnIcon>
         </Link>
-        <div className='SearchBar'>
+        <div className={searchBar}>
           <input
             type='text'
             placeholder='Trouve livre à ton pied'
@@ -74,11 +75,7 @@ export const SearchBar = () => {
           )}
         </div>
 
-        <Link
-          to='/cart'
-          className='Icon'
-          style={{ display: 'flex', alignItems: 'center' }}
-        >
+        <Link to='/cart' className={icon}>
           <ShoppingCartIcon />
           <p>{totalItemsInCart}</p>
         </Link>

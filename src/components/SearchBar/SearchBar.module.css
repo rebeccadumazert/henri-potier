@@ -1,4 +1,4 @@
-.SearchBar > input {
+.searchBar > input {
   border-color: gray;
   border: 1px solid;
   border-radius: 2px;
@@ -7,17 +7,17 @@
   padding: 5px;
 }
 
-.SearchBar {
+.searchBar {
   display: flex;
 }
-.SearchBar > input::placeholder {
+.searchBar > input::placeholder {
   text-align: center;
 }
-.SearchBar > button {
+.searchBar > button {
   background-color: transparent;
   border: none;
 }
-.Head {
+.head {
   height: 50px;
   background-color: #efe9f6;
   display: flex;
@@ -25,7 +25,7 @@
   align-items: center;
 }
 
-.Icon {
+.icon {
   margin: 10px;
   display: flex;
   align-items: center;
@@ -33,12 +33,16 @@
   text-decoration: none;
 }
 
-.Icon > p {
+.icon > p {
   text-decoration: none;
 }
 
+.homeIcon {
+  margin: 5px;
+}
+
 @media (max-width: 600px) {
-  .SearchBar > input {
+  .searchBar > input {
     width: 200px;
   }
 }

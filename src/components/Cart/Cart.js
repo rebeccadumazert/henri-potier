@@ -1,8 +1,7 @@
-import './Cart.css'
-
 import { useEffect, useState } from 'react'
 
 import { getCommercialOffers } from '../../services/api'
+import styles from './Cart.module.css'
 import { useSelector } from 'react-redux'
 
 function Cart() {
@@ -52,26 +51,36 @@ function Cart() {
     })()
   }, [cart, total])
 
+  const {
+    containerTotal,
+    bookCart,
+    picContainer,
+    totalBuy,
+    infoBookToBuy,
+    containerBookCart,
+    priceStyle,
+  } = styles
+
   return (
     <div>
       {total === 0 ? (
         <p>Vous n'avez pas d'article dans votre panier !</p>
       ) : (
-        <div className='ContainerTotal'>
-          <div className='ContainerBookCart'>
-            {cart.map((cartItem, index) => (
-              <div key={index} className='BookCart'>
-                <div className='PicContainer'>
-                  <img src={cartItem.cover} alt='' />
+        <div className={containerTotal}>
+          <div className={containerBookCart}>
+            {cart.map(({ cover, price, title }, index) => (
+              <div key={index} className={bookCart}>
+                <div className={picContainer}>
+                  <img src={cover} alt='' />
                 </div>
-                <div className='InfoBookToBuy'>
-                  <p>{cartItem.title}</p>
-                  <p className='Price'>{cartItem.price} €</p>
+                <div className={infoBookToBuy}>
+                  <p>{title}</p>
+                  <p className={priceStyle}>{price} €</p>
                 </div>
               </div>
             ))}
           </div>
-          <div className='TotalBuy'>
+          <div className={totalBuy}>
             <h3>Total de vos achats</h3>
             <p>
               Total : <span>{total} €</span>

@@ -1,5 +1,8 @@
-.Books {
-  margin: 10px 50px;
+.resultsBC {
+  background-color: #efe9f6;
+}
+
+.resultsContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

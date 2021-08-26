@@ -1,0 +1,6 @@
+.booksList {
+  margin: 10px 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

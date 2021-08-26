@@ -1,39 +1,35 @@
-.ContainerBookCart {
+.containerBookCart {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   flex-grow: 1;
 }
 
-.BookCart {
+.bookCart {
   text-align: center;
   justify-content: center;
   margin: 20px;
 }
-.PicContainer {
+.picContainer {
   margin: auto;
   width: 250px;
 }
 
-.PicContainer > img {
+.picContainer > img {
   width: 100%;
 }
 
-.BooksSelected {
-  display: flex;
-}
-
-.TotalBuy {
+.totalBuy {
   background-color: #efe9f6;
   flex-grow: 0.5;
   padding: 20px 10px;
   text-align: justify;
 }
 
-.TotalBuy > p {
+.totalBuy > p {
   padding: 5px;
 }
-.TotalBuy > button {
+.totalBuy > button {
   border: none !important;
   border-radius: 2px;
   background-color: #180f75;
@@ -42,17 +38,19 @@
   margin: 10px;
   padding: 10px;
 }
+
 p > span {
   font-weight: bold;
 }
-.ContainerTotal {
+
+.containerTotal {
   display: flex;
 }
 
-.InfoBookToBuy {
+.infoBookToBuy {
   text-align: justify;
 }
 
-.InfoBookToBuy > .price {
+.infoBookToBuy > .priceStyle {
   font-weight: bold;
 }

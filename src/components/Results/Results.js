@@ -1,5 +1,6 @@
 import Book from '../Book/Book'
 import HighlightOffIcon from '@material-ui/icons/HighlightOff'
+import styles from './Results.module.css'
 import { useSelector } from 'react-redux'
 
 function Results({ popUp, setPopUp }) {
@@ -7,16 +8,11 @@ function Results({ popUp, setPopUp }) {
     setPopUp(!popUp)
   }
   const results = useSelector((state) => state.resultsSearch)
+  const { resultsContainer, resultsBC } = styles
   return (
-    <div style={{ backgroundColor: '#efe9f6' }}>
+    <div className={resultsBC}>
       <HighlightOffIcon onClick={closePopUp} />
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-        }}
-      >
+      <div className={resultsContainer}>
         {results.length === 0 ? (
           <div>
             Le titre que vous recherchez n'est pas recensé dans la base de
@@ -29,7 +25,5 @@ function Results({ popUp, setPopUp }) {
     </div>
   )
 }
-
-// #efe9f6
 
 export default Results
