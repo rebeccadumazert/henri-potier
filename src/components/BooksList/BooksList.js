@@ -1,8 +1,8 @@
-import './Books.css'
+import './BooksList.css'
 
 import React, { useEffect, useState } from 'react'
 
-import Book from './components/Book/Book'
+import Book from '../Book/Book.js'
 import { getBooks } from '../../services/api'
 
 function Books() {
@@ -10,8 +10,8 @@ function Books() {
 
   useEffect(() => {
     const getBooksDatas = async () => {
-      const datas = await getBooks()
-      setBooks(datas)
+      const datasBooks = await getBooks()
+      setBooks(datasBooks)
     }
     getBooksDatas()
   }, [])

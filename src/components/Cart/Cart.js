@@ -12,6 +12,7 @@ function Cart() {
     return prev + current.price
   }, 0)
 
+  // fonction qui permet de tester les différentes offfres renvoyées par l'api et qui renvoie la meilleure
   function getBestOffer(offers) {
     let bestDiscount = 0
     for (let i = 0; i < offers.length; i++) {
@@ -37,13 +38,18 @@ function Cart() {
   }
 
   useEffect(() => {
-    if (total > 0) {
-      getCommercialOffers(cart.map((cartItem) => cartItem.isbn)).then(
-        (data) => {
+    ;(async () => {
+      if (total > 0) {
+        try {
+          const data = await getCommercialOffers(
+            cart.map((cartItem) => cartItem.isbn)
+          )
           setDiscountedTotal(total - getBestOffer(data.offers))
+        } catch (e) {
+          console.error(e)
         }
-      )
-    }
+      }
+    })()
   }, [cart, total])
 
   return (

@@ -1,4 +1,4 @@
-import Book from '../../Books/components/Book/Book'
+import Book from '../Book/Book'
 import HighlightOffIcon from '@material-ui/icons/HighlightOff'
 import { useSelector } from 'react-redux'
 
@@ -9,10 +9,7 @@ function Results({ popUp, setPopUp }) {
   const results = useSelector((state) => state.resultsSearch)
   return (
     <div style={{ backgroundColor: '#efe9f6' }}>
-      <HighlightOffIcon
-        style={{ backgroundColor: '#efe9f6' }}
-        onClick={closePopUp}
-      ></HighlightOffIcon>
+      <HighlightOffIcon onClick={closePopUp} />
       <div
         style={{
           display: 'flex',

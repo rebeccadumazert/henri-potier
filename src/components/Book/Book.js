@@ -1,6 +1,6 @@
 import './Book.css'
 
-import { addToCart } from '../../../../store/cart'
+import { addToCart } from '../../store/cart'
 import { useDispatch } from 'react-redux'
 
 export default function Book({ book }) {

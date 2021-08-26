@@ -1,6 +1,6 @@
 # Henri POTTIER e-commerce // TEST TECHNIQUE PUBLICIS
 
-This is the start of an e-commerce website. He presents the books of Henri Potier.
+This is the start of an e-commerce website. It lists the books of Henri Potier and you can add them to cart.
 ## Available Scripts
 
 Install Dependencies :
