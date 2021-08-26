@@ -39,4 +39,5 @@ p {
   padding: 10px;
   font-weight: bolder;
   border-radius: 2px;
+  cursor: pointer;
 }
