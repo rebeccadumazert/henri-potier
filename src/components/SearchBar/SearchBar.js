@@ -26,6 +26,8 @@ export const SearchBar = () => {
     getBooksDatas()
   }, [])
 
+  // regex to filter the search
+
   function findResultBySearch(search, booksList) {
     const searchRegex = new RegExp(`/*${search}*`, 'i')
     const resultSearch = booksList.filter(({ title }) =>
@@ -35,18 +37,21 @@ export const SearchBar = () => {
     setPopUp(true)
   }
 
-  function triggerSearch(event) {
-    if (event.code === 'Enter') {
+  function triggerSearch({ code }) {
+    if (code === 'Enter') {
       searchThroughTitles()
+    }
+    if (code === 'Escape') {
+      setPopUp(false)
     }
   }
 
-  const searchThroughTitles = () => {
+  function searchThroughTitles() {
     findResultBySearch(search, books)
     setSearch('')
   }
 
-  const setSearchByCustomer = ({ target: { value } }) => {
+  function setSearchByCustomer({ target: { value } }) {
     setSearch(value)
   }
 
