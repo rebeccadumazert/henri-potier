@@ -38,7 +38,7 @@ export const SearchBar = () => {
   }
 
   function triggerSearch({ code }) {
-    if (code === 'Enter') {
+    if (code === 'Enter' && search.length > 0) {
       searchThroughTitles()
     }
     if (code === 'Escape') {
