@@ -1,0 +1,12 @@
+.buyItBtn {
+  margin-top: 10px;
+  align-self: flex-end;
+  border: none;
+  color: white;
+  background-color: #180f75;
+  width: 250px;
+  padding: 10px;
+  font-weight: bolder;
+  border-radius: 2px;
+  cursor: pointer;
+}
