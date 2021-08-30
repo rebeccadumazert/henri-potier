@@ -1,0 +1,42 @@
+.detailsContainer {
+  display: flex;
+}
+
+.coverContainer,
+.infoContainer {
+  margin: 25px;
+}
+
+.coverContainer {
+  max-height: 500px;
+  width: 500px;
+}
+.coverContainer > img {
+  height: 100%;
+}
+
+.infoContainer {
+  text-align: justify;
+  padding: 0 50px 0 0;
+}
+
+.infoContainer > p {
+  margin: 10px;
+}
+
+.resume {
+  font-weight: bolder;
+}
+
+h3 {
+  margin: 0 0 0 10px;
+}
+
+.cost {
+  font-size: large;
+  font-weight: 700;
+  color: #666;
+}
+.addCart {
+  margin-left: 10px !important;
+}
